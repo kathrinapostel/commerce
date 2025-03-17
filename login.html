@@ -1,0 +1,35 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <div class="container">
+        <div class="sub-title">Login</div>
+
+        <!-- Falls eine Nachricht (z.B. ein Fehler) vorhanden ist, wird sie hier angezeigt -->
+        {% if message %}
+            <div class="mb-3">{{ message }}</div>
+        {% endif %}
+
+        <!-- Login-Formular -->
+        <form action="{% url 'auctions:login' %}" method="post" class="mb-3">
+            {% csrf_token %}
+            <!-- Benutzereingabe für den Benutzernamen -->
+            <div class="mb-3">
+                <input autofocus class="form-control" type="text" name="username" placeholder="Username">
+            </div>
+            <!-- Benutzereingabe für das Passwort -->
+            <div class="mb-3">
+                <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+            <!-- Falls der Benutzer nach dem Login auf eine bestimmte Seite weitergeleitet werden soll, wird die 'next'-URL hier mitgeschickt -->
+            {% if request.GET.next %}
+                <input type="hidden" name="next" value="{{ request.GET.next }}">
+            {% endif %}
+            <!-- Absenden des Formulars mit dem Login-Button -->
+            <input class="btn btn-primary btn-new-blue" type="submit" value="Login">
+        </form>
+
+        <!-- Link zur Registrierungsseite für neue Benutzer -->
+        Don't have an account? <a href="{% url 'auctions:register' %}">Register here.</a>
+    </div>
+
+{% endblock %}

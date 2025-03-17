@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+/* Definiert globale CSS-Variablen für wiederverwendbare Werte */
+:root {
+    --header-height: 3rem; /* Höhe des Headers */
+    --nav-width: 120px; /* Breite der Navigationsleiste */
+    --first-color: rgba(200, 200, 200, 0.8); /* Weiches Grau */
+    --white-color: #ffffff; /* Reines Weiß */
+    --white-color-light: #f6f8fbd0; /* Leicht transparentes Weiß für den Hintergrund */
+    --body-font: 'Roboto', arial; /* Standard-Schriftart */
+    --normal-font-size: 1rem; /* Standard-Schriftgröße */
+    --z-fixed: 100; /* Z-Index für feste Elemente */
+}
+
+/* Stellt sicher, dass Pseudoelemente (::before, ::after) die gleiche Box-Berechnung verwenden */
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+/* Stil für den gesamten Body */
+body {
+    position: relative;
+    margin: var(--header-height) 0 0 0; /* Oben Platz für den Header lassen */
+    padding: 0 1rem; /* Horizontaler Innenabstand */
+    font-family: var(--body-font); /* Schriftart setzen */
+    font-size: var(--normal-font-size); /* Standard-Schriftgröße */
+    transition: .5s; /* Sanfte Übergänge */
+    background: var(--white-color-light); /* Hintergrundfarbe */
+    color: #000000; /* Textfarbe Schwarz */
+}
+
+/* Links ohne Unterstreichung und mit schwarzer Farbe */
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+/* Header-Stil */
+.header {
+    width: 100%;
+    height: var(--header-height); /* Höhe aus der Variablen */
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Inhalt wird links und rechts ausgerichtet */
+    padding: 0 1rem;
+    background-color: var(--first-color) !important; /* Roter Hintergrund */
+    z-index: var(--z-fixed); /* Bleibt über anderen Elementen */
+    color: #ffffff; /* Weißer Text */
+}
+
+/* Stil für das Menü-Symbol (Hamburger-Menü) */
+.header_toggle {
+    color: #ffffff; /* Weißes Icon */
+    font-size: 1.5rem; /* Größere Größe */
+    cursor: pointer; /* Mauszeiger als Zeigefinger */
+}
+
+/* Header-Bild (z. B. Profilbild) */
+.header_img {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%; /* Rundes Profilbild */
+    overflow: hidden; /* Verhindert Überlaufen */
+}
+
+/* Das eigentliche Bild im Header-Icon */
+.header_img img {
+    width: 40px; /* Leicht überdimensioniert für bessere Darstellung */
+}
+
+/* Navigationsleiste */
+.l-navbar {
+    position: fixed;
+    top: 0;
+    left: -30%; /* Standardmäßig ausgeblendet */
+    width: var(--nav-width); /* Breite aus Variablen */
+    height: 100vh; /* Ganze Bildschirmhöhe */
+    background-color: var(--first-color); /* Hintergrundfarbe */
+    padding: .5rem 1rem 0 0; /* Innenabstände */
+    transition: .5s; /* Animierte Öffnung */
+    z-index: var(--z-fixed); /* Bleibt oben */
+    color: #000000; /* Schwarze Schrift */
+}
+
+/* Navigationselemente als flexibles Layout */
+.nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Elemente werden oben und unten ausgerichtet */
+    overflow: hidden; /* Kein Scrollen innerhalb der Navigation */
+}
+
+/* Logo und Links haben ein zweispaltiges Layout */
+.nav_logo,
+.nav_link {
+    display: grid;
+    grid-template-columns: max-content max-content; /* Zwei Spalten */
+    align-items: center;
+    column-gap: 1rem; /* Abstand zwischen Spalten */
+    padding: .5rem 0 .5rem 1.5rem; /* Innenabstände */
+}
+
+/* Logo-Abstand */
+.nav_logo {
+    margin-bottom: 2rem;
+}
+
+/* Kategorie-Überschrift in der Navigation */
+.nav_categories {
+    color: #000000;
+    font-weight: 700; /* Fett */
+}
+
+/* Stil für Navigationslinks */
+.nav_link {
+    position: relative;
+    color: var(--first-color-light); /* Helle Farbe */
+    margin-bottom: 1.5rem; /* Abstand zwischen Links */
+    transition: .3s; /* Sanfter Farbübergang */
+}
+
+/* Hover-Effekt für Navigationslinks */
+
+
+/* Navigation-Icons */
+.nav_icon {
+    font-size: 1.25rem;
+}
+
+/* Klasse für das sichtbare Menü */
+.show {
+    left: 0;
+}
+
+/* Verschiebt den Body, wenn Navigation sichtbar ist */
+.body-pd {
+    padding-left: calc(var(--nav-width) + 1rem);
+}
+
+/* Aktiver Link */
+.active {
+    color: #000000;
+}
+
+/* Versteckt das Innere bestimmter Elemente */
+.hide-inner {
+    visibility: hidden !important;
+}
+
+/* Logo in der Navigation wird versteckt */
+.nav_logo {
+    visibility: hidden;
+}
+
+/* Markiert den aktiven Link mit einem linken Balken */
+.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 2px;
+    height: 32px;
+    background-color: var(--first-color); /* Roter Balken */
+}
+
+/* Volle Bildschirmhöhe für bestimmte Elemente */
+.height-100 {
+    height: 100vh;
+}
+
+/* Medienabfrage für größere Bildschirme */
+@media screen and (min-width: 768px) {
+    /* Mehr Platz oben und links für größere Bildschirme */
+    body {
+        margin: calc(var(--header-height) + 1rem) 0 0 0;
+        padding-left: calc(var(--nav-width) + 2rem);
+    }
+
+    /* Größerer Header auf großen Bildschirmen */
+    .header {
+        height: calc(var(--header-height) + 1rem);
+        padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
+    }
+
+    /* Navigation ist standardmäßig sichtbar */
+    .l-navbar {
+        left: 0;
+        padding: 1rem 1rem 0 0;
+    }
+
+    /* Navigation wird größer, wenn sichtbar */
+    .show {
+        width: calc(var(--nav-width) + 156px);
+    }
+
+    /* Mehr Platz für den Body, wenn Navigation geöffnet ist */
+    .body-pd {
+        padding-left: calc(var(--nav-width) + 188px);
+    }
+
+    /* Logo wird auf großen Bildschirmen sichtbar */
+    .nav_logo {
+        visibility: visible;
+    }
+}

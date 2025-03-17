@@ -1,0 +1,57 @@
+<!-- Erweitert das Layout von "auctions/layout.html" -->
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+<!-- Container für den Inhalt der Seite -->
+<div class="container">
+    <!-- Untertitel der Seite, der anzeigt, dass eine neue Auktion erstellt wird -->
+    <div class="sub-title">Create Listing</div>
+
+    <!-- Das Formular zur Erstellung einer neuen Auktion -->
+    <form action="{% url 'auctions:create_listing' %}" method="POST">
+        <!-- CSRF-Token für die Sicherheit des Formulars -->
+        {% csrf_token %}
+
+        <!-- Eingabefeld für den Titel der Auktion -->
+        <div class="form-group mb-3">
+            <label for="id_title">{{ form.title.label }}:</label>
+            <!-- Das Formularfeld für den Titel -->
+            {{ form.title }}
+        </div>
+
+        <!-- Eingabefeld für die Beschreibung der Auktion -->
+        <div class="form-group mb-3">
+            <label for="id_description">{{ form.description.label }}:</label>
+            <!-- Das Formularfeld für die Beschreibung -->
+            {{ form.description }}
+        </div>
+
+        <!-- Eingabefeld für die Kategorie der Auktion -->
+        <div class="form-group mb-3">
+            <label for="id_category">{{ form.category.label }}:</label>
+            <!-- Das Formularfeld für die Kategorie -->
+            {{ form.category }}
+        </div>
+
+        <!-- Eingabefeld für die Bild-URL der Auktion -->
+        <div class="form-group mb-3">
+            <label for="id_image_url">{{ form.image_url.label }}:</label>
+            <!-- Das Formularfeld für die Bild-URL -->
+            {{ form.image_url }}
+        </div>
+
+        <!-- Eingabefeld für den Preis der Auktion -->
+        <div class="form-group mb-3">
+            <label for="id_price">{{ form.price.label }}:</label>
+            <!-- Das Formularfeld für den Preis -->
+            {{ form.price }}
+        </div>
+
+        <!-- Submit-Button zum Absenden des Formulars -->
+        <button type="submit" class="btn btn-primary btn-new-blue" aria-label="submit">Submit</button>
+    </form>
+</div>
+
+{% endblock %}
+

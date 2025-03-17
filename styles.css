@@ -1,0 +1,176 @@
+/* --- Farbvariablen --- */
+:root {
+    --first-blue: rgba(21, 95, 144, 0.8); /* Dunkelblau mit Transparenz */
+    --first-blue-light: rgba(92, 143, 174, 0.8); /* Helleres Blau mit Transparenz */
+    --white-color: #f0f4fc; /* Helles Hintergrundweiß */
+}
+
+/* --- Allgemeine Stile --- */
+body {
+    padding: 10px; /* Abstand zum Rand */
+}
+
+/* Schatten-Effekt für Elemente */
+.shadow {
+    -webkit-box-shadow: 0px 0px 7px 3px rgb(216 216 216);
+    -moz-box-shadow: 0px 0px 7px 3px rgb(216 216 216);
+    box-shadow: 0px 0px 7px 3px rgb(216 216 216);
+}
+
+/* Navigationselemente */
+.nav-link {
+    color: white;
+    padding: 0;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+/* Stil für blaue Buttons */
+.btn-new-blue {
+    background-color: var(--first-blue);
+    border-color: var(--first-blue-light);
+}
+.btn-new-blue:hover {
+    background-color: var(--first-blue-light);
+    border-color: var(--first-blue-light);
+}
+
+/* --- Titel auf der Seite --- */
+.main-title {
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 20px 0 0 0;
+}
+
+.sub-title {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 2rem;
+}
+
+/* --- Stile für die Listing-Seite --- */
+
+/* Bilddarstellung in der Auktion */
+.listing-page-img-wrapper {
+    text-align: center;
+}
+
+.listing-page-img {
+    max-width: 500px;
+}
+
+/* Hauptbutton auf der Listing-Seite */
+.listing-page-main-btn {
+    float: right;
+}
+
+/* Titel der Auktion */
+.auction-title {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.auction-title h2 {
+    font-size: 2rem;
+}
+
+/* Kommentar-Sektion in der Auktion */
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: .8rem;
+}
+
+.single-comment {
+    list-style-type: none;
+    border-left: 10px solid var(--first-blue); /* Blauer Rand für Kommentare */
+    border-radius: 10px;
+    background-color: var(--white-color);
+    padding: 15px;
+}
+
+.comment-text {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 15px;
+}
+
+.comment-author {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.92em;
+    margin-bottom: 3px;
+}
+
+/* --- Layout für die Auktionsliste --- */
+.auction-item {
+    padding: 0;
+    margin-right: 20px;
+    width: 300px;
+}
+
+.auction-item a {
+    color: black;
+}
+
+.auction-item a:hover {
+    color: var(--first-blue-light);
+}
+
+/* Container für Auktionsbilder */
+.card-image-wrapper {
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+.listing-img {
+    height: 200px;
+    object-fit: contain;
+}
+
+/* Datum der Auktion */
+.auction-list-date {
+    font-size: small;
+    font-style: italic;
+    color: red;
+}
+
+/* --- Fehlerseite-Design --- */
+div.error-container {
+    position: relative;
+    color: black;
+}
+
+div.error-code {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    color: rgba(255, 0, 0, 0.644);
+    font-size: 70px;
+}
+
+div.error-message {
+    position: absolute;
+    left: 43%;
+    top: 40%;
+    font-size: 35px;
+    transform: translate(0%, 10%);
+}
+
+/* --- Responsive Design für die Fehlerseite --- */
+@media screen and (max-width: 600px) {
+    div.error-code {
+        font-size: 40px;
+    }
+    div.error-message {
+        left: 40%;
+        top: 58%;
+        font-size: 20px;
+    }
+}

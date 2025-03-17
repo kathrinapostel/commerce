@@ -1,0 +1,36 @@
+<!-- Card für das Auktions-Item, mit Abstand und Schatten -->
+<div class="card auction-item mb-4 shadow">
+    <!-- Link zur Auktionsseite, der die ID des Auktions-Items übergibt -->
+    <a href="{% url 'auctions:listing_page' auction_id=auction.id %}">
+
+    <!-- Überprüfung, ob eine Bild-URL für die Auktion vorhanden ist -->
+    {% if auction.image_url %}
+        <!-- Wrapper für das Bild -->
+        <div class="card-image-wrapper">
+            <!-- Das Bild der Auktion wird hier eingebunden -->
+            <img class="card-img-top listing-img" src="{{ auction.image_url }}" alt="{{ auction.title }} photo">
+        </div>
+    {% endif %}
+
+        <!-- Der Hauptbereich der Card, der die Informationen zur Auktion enthält -->
+        <div class="card-body">
+            <!-- Der Titel der Auktion -->
+            <h5 class="card-title"> {{ auction.title }} </h5>
+
+            <!-- Aktueller Preis der Auktion -->
+            <div>
+                <strong>Price:</strong> {{auction.current_price}} $
+            </div>
+
+            <!-- Die Kategorie der Auktion -->
+            <div class="mb-2">
+                <strong>Category:</strong> {{auction.get_category_display}}
+            </div>
+
+            <!-- Veröffentlichungsdatum der Auktion -->
+            <div class="auction-list-date">
+                {{auction.publication_date}}
+            </div>
+        </div>
+    </a>
+</div>

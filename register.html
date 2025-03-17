@@ -1,0 +1,38 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <div class="container">
+        <div class="sub-title">Register</div>
+
+        <!-- Falls eine Nachricht (z.B. ein Fehler) vorhanden ist, wird sie hier angezeigt -->
+        {% if message %}
+            <div class="mb-3">{{ message }}</div>
+        {% endif %}
+
+        <!-- Registrierungsformular -->
+        <form action="{% url 'auctions:register' %}" method="post" class="mb-3">
+            {% csrf_token %}
+            <!-- Benutzereingabe für den Benutzernamen -->
+            <div class="mb-3">
+                <input class="form-control" autofocus type="text" name="username" placeholder="Username">
+            </div>
+            <!-- Benutzereingabe für die E-Mail-Adresse -->
+            <div class="mb-3">
+                <input class="form-control" type="email" name="email" placeholder="Email Address">
+            </div>
+            <!-- Benutzereingabe für das Passwort -->
+            <div class="mb-3">
+                <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+            <!-- Benutzereingabe für die Passwortbestätigung -->
+            <div class="mb-3">
+                <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
+            </div>
+            <!-- Absenden des Formulars mit dem Registrieren-Button -->
+            <input class="btn btn-primary btn-new-blue" type="submit" value="Register">
+        </form>
+
+        <!-- Link zur Login-Seite, falls der Benutzer bereits ein Konto hat -->
+        Already have an account? <a href="{% url 'auctions:login' %}">Log In here.</a>
+    </div>
+{% endblock %}
