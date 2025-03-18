@@ -2,7 +2,7 @@ This platform is an e-commerce auction site designed to promote sustainability. 
 
 Features
 
-Create and manage auction listings
-Place bids on existing auctions
-Comment and interact with other users
+Create and manage auction listings,
+Place bids on existing auctions,
+Comment and interact with other users,
 Add items to a personal watchlist
